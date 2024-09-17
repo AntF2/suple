@@ -1,0 +1,35 @@
+<form [formGroup]="personalForm" (ngSubmit)="savePersonal()">
+  <label for="id">ID:</label>
+  <input id="id" formControlName="id" />
+  
+  <label for="name">Nombre:</label>
+  <input id="name" formControlName="name" />
+  
+  <label for="surname">Apellido:</label>
+  <input id="surname" formControlName="surname" />
+  
+  <label for="address">Domicilio:</label>
+  <input id="address" formControlName="address" />
+  
+  <button type="submit">{{ editMode ? 'Actualizar' : 'Agregar' }}</button>
+</form>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Domicilio</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let person of personal">
+    <td>{{ person.id }}</td>
+    <td>{{ person.name }}</td>
+    <td>{{ person.surname }}</td>
+    <td>{{ person.address }}</td>
+    <td>
+      <button (click)="editPersonal(person.id)">Editar</button>
+      <button (click)="deletePersonal(person.id)">Eliminar</button>
+    </td>
+  </tr>
+</table>

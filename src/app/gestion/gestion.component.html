@@ -1,0 +1,73 @@
+<h1>Gestión de Videojuegos</h1>
+
+<!-- Formulario para agregar un nuevo juego -->
+<form (ngSubmit)="createJuego()">
+  <h2>Agregar Nuevo Juego</h2>
+  <label for="title">Título:</label>
+  <input id="title" [(ngModel)]="newJuego.title" name="title" required>
+  
+  <label for="image">Imagen URL:</label>
+  <input id="image" [(ngModel)]="newJuego.image" name="image" required>
+  
+  <label for="price">Precio:</label>
+  <input id="price" [(ngModel)]="newJuego.price" name="price" required>
+  
+  <label for="description">Descripción:</label>
+  <input id="description" [(ngModel)]="newJuego.description" name="description" required>
+  
+  <label for="platform">Plataforma:</label>
+  <input id="platform" [(ngModel)]="newJuego.platform" name="platform" required>
+  
+  <button type="submit">Agregar Juego</button>
+</form>
+
+<!-- Tabla de juegos existentes -->
+<h2>Juegos Existentes</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Imagen</th>
+      <th>Precio</th>
+      <th>Descripción</th>
+      <th>Plataforma</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let juego of juegos">
+      <td>{{ juego.id }}</td>
+      <td>{{ juego.title }}</td>
+      <td><img [src]="juego.image" alt="{{ juego.title }}" width="100"></td>
+      <td>{{ juego.price | currency }}</td>
+      <td>{{ juego.description }}</td>
+      <td>{{ juego.platform }}</td>
+      <td>
+        <button (click)="selectJuego(juego)">Editar</button>
+        <button (click)="deleteJuego(juego.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Formulario para editar un juego seleccionado -->
+<div *ngIf="selectedJuego">
+  <h2>Editar Juego</h2>
+  <form (ngSubmit)="updateJuego()">
+    <label for="edit-title">Título:</label>
+    <input id="edit-title" [(ngModel)]="selectedJuego.title" name="title" required>
+    
+    <label for="edit-image">Imagen URL:</label>
+    <input id="edit-image" [(ngModel)]="selectedJuego.image" name="image" required>
+    
+    <label for="edit-price">Precio:</label>
+    <input id="edit-price" [(ngModel)]="selectedJuego.price" name="price" required>
+    
+    <label for="edit-description">Descripción:</label>
+    <input id="edit-description" [(ngModel)]="selectedJuego.description" name="description" required>
+    
+    <label for="edit-platform">Plataforma:</label>
+    <input id="edit-platform" [(ngModel)]="selectedJuego.platform" name="platform" required>
+    
+    <button type="submit">Actualizar Juego</button>

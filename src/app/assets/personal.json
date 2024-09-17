@@ -1,0 +1,27 @@
+[
+    {
+      "id": "1234567890",
+      "nombre": "Juan",
+      "apellido": "Pérez",
+      "domicilio": "Calle Falsa 123",
+      "username": "juanperez",
+      "password": "password123"
+    },
+    {
+      "id": "0987654321",
+      "nombre": "María",
+      "apellido": "Gómez",
+      "domicilio": "Avenida Siempre Viva 742",
+      "username": "mariagomez",
+      "password": "password456"
+    },
+    {
+      "id": "1122334455",
+      "nombre": "Carlos",
+      "apellido": "Rodríguez",
+      "domicilio": "Plaza Mayor 9",
+      "username": "carlosrodriguez",
+      "password": "password789"
+    }
+  ]
+  

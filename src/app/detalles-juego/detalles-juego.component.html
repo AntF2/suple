@@ -1,0 +1,8 @@
+<div *ngIf="juego">
+    <h1>{{ juego.title }}</h1>
+    <img [src]="juego.image" alt="{{ juego.title }}" />
+    <p>Precio: {{ juego.price | currency }}</p>
+    <p>Descripción: {{ juego.description }}</p>
+    <p>Plataforma: {{ juego.platform }}</p>
+  </div>
+  

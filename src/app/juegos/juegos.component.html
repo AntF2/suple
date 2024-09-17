@@ -1,0 +1,17 @@
+<div>
+    <label for="minPrice">Min Price:</label>
+    <input id="minPrice" type="number" [(ngModel)]="minPrice" />
+    
+    <label for="maxPrice">Max Price:</label>
+    <input id="maxPrice" type="number" [(ngModel)]="maxPrice" />
+    
+    <button (click)="filterByPrice()">Filter</button>
+  </div>
+  
+  <div *ngFor="let juego of filteredJuegos">
+    <h2>{{ juego.title }}</h2>
+    <img [src]="juego.image" alt="{{ juego.title }}" />
+    <p>Precio: {{ juego.price | currency }}</p>
+    <button (click)="viewDetails(juego.id)">View Details</button>
+  </div>
+  
